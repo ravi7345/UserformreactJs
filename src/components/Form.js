@@ -29,6 +29,11 @@ const UserForm = () => {
       return;
     }
 
+    if (!validatePhoneNumber(phone_number)) {
+      setError('Please enter a valid phone number (Without 0 or country code)');
+      return;
+    }
+
     const userdata = {
       name,
       dob,
@@ -46,8 +51,15 @@ const UserForm = () => {
       window.alert('Success. We sent you an email for becoming a part of our precious family.');
       navigate('/submitted-form');
     } catch (error) {
-      console.error(error);
-      // Handle the error response, display error message, etc.
+      if (error.response && error.response.status === 400) {
+        setError('Phone number already exists');
+        window.alert('Phone number already exists')
+        setPhoneNumber('');
+        console.clear()
+      } else {
+        console.error(error);
+        setError('An error occurred. Please try again later.');
+      }
     }
 
     // Reset form fields and error message
@@ -56,6 +68,12 @@ const UserForm = () => {
     setEmail('');
     setPhoneNumber('');
     setError('');
+  };
+
+  const validatePhoneNumber = (phoneNumber) => {
+    // Regular expression for validating phone number format
+    const phoneRegex = /^\d{10}$/;
+    return phoneRegex.test(phoneNumber);
   };
 
   return (
@@ -116,3 +134,4 @@ const UserForm = () => {
 };
 
 export default UserForm;
+
