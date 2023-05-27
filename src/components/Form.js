@@ -31,7 +31,7 @@ const UserForm = () => {
     }
 
     if (!validatePhoneNumber(phone_number)) {
-      setError('Please enter a valid phone number (Without 0 or country code)');
+      setError('Please enter a valid phone number (With indian country code)');
       
       return;
     }
