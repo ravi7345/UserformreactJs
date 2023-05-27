@@ -26,11 +26,13 @@ const UserForm = () => {
 
     if (ageInYears < 18) {
       setError('You must be at least 18 years old');
+      
       return;
     }
 
     if (!validatePhoneNumber(phone_number)) {
       setError('Please enter a valid phone number (Without 0 or country code)');
+      
       return;
     }
 
@@ -72,14 +74,15 @@ const UserForm = () => {
 
   const validatePhoneNumber = (phoneNumber) => {
     // Regular expression for validating phone number format
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex = /^\+91\d{10}$/;
     return phoneRegex.test(phoneNumber);
   };
+  
 
   return (
     <div className="container">
       <span className="form__title">User Forms</span>
-      {error && <div className="form__error">{error}</div>}
+      {error && <div className="form__worning">{error}</div>}
       <form className="form" onSubmit={handleSubmit}>
         <div className="form__group">
           <input

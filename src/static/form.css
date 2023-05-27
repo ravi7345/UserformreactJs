@@ -18,12 +18,12 @@ body {
 	height: 100%;
 }
 body {
-	font-family: 'Poppins', sans-serif;
-	font-size: 1.6rem;
-	color: #fff;
-	background-color: #000;
-	display: grid;
-	place-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    color: #fff;
+    background-color: #fff;
+    display: grid;
+    place-items: normal;
 }
 /* ======================== */
 /* General styles */
@@ -36,14 +36,14 @@ input {
 /* General styles end */
 .container {
 	position: relative;
-	isolation: isolate;
-	width: 40rem;
-	padding: 10rem 0;
-	color: #fff;
-	background-color: #fff;
-	border-radius: 1rem;
-	box-shadow: 0 1px 1rem 
-		rgba(0, 0, 0, 0.1);
+    isolation: isolate;
+    width: 40rem;
+    padding: 10rem 0;
+    color: #fff;
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 29px 12rem rgba(0, 0, 0, 0.1);
+    margin: 10rem 10rem 18rem 30rem
 }
 .container::before {
 	content: '';
@@ -127,6 +127,15 @@ input {
 .form__switch a:hover {
 	text-decoration: underline;
 }
+.container.form__warning {
+	background-color: #ffcc80;
+	color: #e65100;
+	padding: 10px;
+	border-radius: 4px;
+	margin-bottom: 10px;
+	font-size: 14px;
+  }
+  
 @media screen and (min-width: 43.75em) {
 	.container::before {
 		height: 30rem;
